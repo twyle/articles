@@ -1,0 +1,4 @@
+commitizen==2.24.0
+pre-commit==2.18.1
+python-dotenv==0.20.0
+setuptools==60.10.0

@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+
+  web:
+    build:
+      context: ./services/web
+      dockerfile: Dockerfile.dev
+    expose:  # new
+      - 5000
+    env_file:
+      - ./services/web/.env
+    labels:  # new
+      - "traefik.enable=true"
+      - "traefik.http.routers.flask.rule=Host(`flask.localhost`)"
+
+  traefik:  # new
+    build:
+      context: ./services/traefik
+      dockerfile: Dockerfile.traefik.dev
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"

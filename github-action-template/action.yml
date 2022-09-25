@@ -1,0 +1,17 @@
+# action.yml
+name: "GitHub Action Template"
+description: "A template for creating GitHub Actions."
+author: "Lyle Okoth"
+inputs:
+  myinput:
+    description: "The users name."
+    default: "world"
+outputs:
+  myoutput:
+    description: "A greeting with the users name i.e hello world"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+branding:
+  icon: 'award'
+  color: 'green'

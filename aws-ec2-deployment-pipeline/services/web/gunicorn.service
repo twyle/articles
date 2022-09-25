@@ -1,0 +1,14 @@
+[Unit]
+Description=Gunicorn instance to serve the api
+After=network.target
+
+[Service]
+User=lyle
+Group=lyle
+WorkingDirectory=/home/lyle/repo-template-ec2/services/web
+Environment="PATH=/home/lyle/repo-template-ec2/services/web/venv/bin"
+EnvironmentFile=/home/lyle/.env
+ExecStart=/home/lyle/repo-template-ec2/services/web/venv/bin/gunicorn --workers 4 --bind 0.0.0.0:5000 manage:app
+
+[Install]
+WantedBy=multi-user.target

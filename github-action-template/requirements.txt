@@ -1,0 +1,5 @@
+importlib_metadata
+pytest
+pytest-cov
+typing_extensions
+xmltodict
